@@ -1,0 +1,85 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.header{
+    font-size: 2rem;
+    border-bottom: 2px solid grey;
+}
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.title{
+    font-family: monospace;
+}
+.sub-title{
+    font-family: monospace;
+    font-size: 0.7rem;
+}
+main{
+    margin-top: 45px;
+    max-height: fit-content;
+}
+
+.cant-personas{
+    margin-bottom: 35px;
+}
+
+.container-checkboxs{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-checkboxs > div{
+    flex-direction: row;
+    align-items: center;
+    height: fit-content;
+    max-width: 400px;
+    width: 100%;
+    min-width: 310px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-checkboxs > div > label{
+    width: -webkit-fill-available;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.container-checkboxs > div > p{
+    width: 45px;
+}
+
+#resultado{
+    margin-top: 15px;
+    text-align: center;
+}
+#cotizacion{
+    font-weight: 600;
+}
+
+.seguro{
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: -webkit-left;
+}
+.seguro > a{
+    color: rgba(26, 96, 245, 0.658);
+    text-decoration: underline;
+    
+}
+.input-Max{
+    width: inherit;
+    max-height: 24px;
+    max-width: 45px;
+    text-align: center;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    margin: 1px;
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Vajillas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <header class="header">
+        <h1>ROI Vajillas</h1>
+    </header>
+    <section>
+        <h1 class="title">¡Calcula tu alquiler!</h1> <br>
+        <p class="sub-title">Última actualización <strong>23/11/2023</strong></p>
+        <main>
+            <form class="max-w-sm mx-auto" style="display: flex; align-items: center; flex-direction: column;">
+
+                <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Por favor ingrese
+                    la cantidad de personas</p> <br>
+                <div class="relative flex items-center max-w-[11rem] cant-personas">
+                    <button type="button" id="decrement-button" data-input-counter-decrement="bedrooms-input"
+                        class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+
+                        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h16" />
+                        </svg>
+
+                        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                            <path
+                                d="M4,20 C4,17 8,17 10,15 C11,14 8,14 8,9 C8,5.667 9.333,4 12,4 C14.667,4 16,5.667 16,9 C16,14 13,14 14,15 C16,17 20,17 20,20" />
+                        </svg>
+
+                    </button>
+                    <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1"
+                        data-input-counter-max="106" aria-describedby="helper-text-explanation"
+                        class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="" value="0" required>
+                    <div
+                        class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
+                        <svg class="w-2.5 h-2.5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4,20 C4,17 8,17 10,15 C11,14 8,14 8,9 C8,5.667 9.333,4 12,4 C14.667,4 16,5.667 16,9 C16,14 13,14 14,15 C16,17 20,17 20,20" />
+                        </svg>
+                        <span>Personas</span>
+                    </div>
+                    <button type="button" id="increment-button" data-input-counter-increment="bedrooms-input"
+                        class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </button>
+                </div>
+
+
+                <label>Seleccione los elementos a alquilar:</label> <br>
+                <div class="container-checkboxs">
+                    <div>
+                        <input type="checkbox" id="plato_playo" value="Plato Playo">
+                        <label for="plato_playo">Plato Playo (Comida General)</label>
+                        <p id="precio_plato_playo"></p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="plato_lunch" value="Plato Lunch">
+                        <label for="plato_lunch">Plato Lunch (Postres)</label>
+                        <p id="precio_plato_lunch"></p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="cuchillos" value="Cuchillos">
+                        <label for="cuchillos">Cuchillos</label>
+                        <p id="precio_cuchillos"></p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="tenedor_mesa" value="Tenedor de Mesa">
+                        <label for="tenedor_mesa">Tenedores</label>
+                        <p id="precio_tenedor_mesa"></p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="cuchara_postre" value="Cuchara de Postre">
+                        <label for="cuchara_postre">Cuchara de Postre</label>
+                        <p id="precio_cuchara_postre"></p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="copa_agua_windsor" value="Copa de Agua Mod. Windsor">
+                        <label for="copa_agua_windsor">Copa de Agua</label>
+                        <p id="precio_copa_agua_windsor"></p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="copa_champagne_windsor" value="Copa de Champagne Mod. Windsor">
+                        <label for="copa_champagne_windsor">Copa de Champagne</label>
+                        <p id="precio_copa_champagne_windsor"></p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="balde_hielo" value="Balde de Hielo Inoxidable c/Pompón Nro.11">
+                        <label for="balde_hielo">Balde de Hielo</label>
+                        <input type="text" id="cantidad_balde_hielo" data-input-counter data-input-counter-max="10"
+                            placeholder="0" class="input-Max">
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="pinzas_hielo" value="Pinzas de Hielo">
+                        <label for="pinzas_hielo">Pinzas de Hielo</label>
+                        <input type="text" id="cantidad_pinzas_hielo" data-input-counter data-input-counter-max="10"
+                            placeholder="0" class="input-Max">
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="panera_bambu_redonda" value="Panera de Bambú Redonda">
+                        <label for="panera_bambu_redonda">Panera de Bambú Redonda</label>
+                        <input type="text" id="cantidad_panera_bambu_redonda" data-input-counter
+                            data-input-counter-max="10" placeholder="0" class="input-Max">
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="legumbrera_oval" value="Legumbrera Oval">
+                        <label for="legumbrera_oval">Legumbrera Oval</label>
+                        <input type="text" id="cantidad_legumbrera_oval" data-input-counter data-input-counter-max="5"
+                            placeholder="0" class="input-Max">
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="fuentes_oval_playas" value="Fuentes Oval Playas">
+                        <label for="fuentes_oval_playas">Fuentes Oval Playas</label>
+                        <input type="text" id="cantidad_fuentes_oval_playas" data-input-counter
+                            data-input-counter-max="5" placeholder="0" class="input-Max">
+                    </div>
+
+
+                </div> <br>
+
+                <button type="button" id="actualizar-button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5
+    py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Actualizar</button>
+
+
+                <p id="resultado">El precio del alquiler será: <span id="cotizacion">0</span> <br>Seguro de <strong style="font-weight: 600;">$5.000</strong></p>
+                <p class="seguro">En caso de roptura, se deberá abonar el elemento dañado al precio de lista, consulte
+                    los
+                    precios de reposición en el siguiente link <a
+                        href="https://docs.google.com/spreadsheets/d/1xWIWA4nEjhaMaTNzjGp4UrpZHgn2hTd4MiDoQIGT8bQ/edit#gid=819803144">Tabla
+                        de reposición</a> <br> El máximo a alquilar son 106 platos, 106 copas, 106 cuchillos y 106
+                    tenedores,
+                    en caso de que algo se pierda o rompa durante el evento tendrán 1-2 respuesto dependiento del stock
+                    del momento. <br> Ejemplo son 106 personas pero a una se le rompe un plato, habrán 2 platos
+                    adicionales disponibles para usar de emergencia, esto mismo aplica a cuchillos, tenedores, copas. No
+                    aplicable en hieleras, Pinza de hielo, Panera, Legumbrera y Fuente Oval. <br> en caso de roptura de
+                    un elemento se descontará del seguro según el precio qué figure en la <a
+                        href="https://docs.google.com/spreadsheets/d/1xWIWA4nEjhaMaTNzjGp4UrpZHgn2hTd4MiDoQIGT8bQ/edit#gid=819803144">tabla
+                        de reposición</a> costo del seguro, es de un total de $5.000, en caso de que no haya roptura o extravío de algun elemento se reintegra en el momento de la devolución de la vajilla, caso contrario se descontará lo extraviado o dañado.</p>
+        </main>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
