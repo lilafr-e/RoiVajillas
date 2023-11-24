@@ -26,14 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 var elemento = checkbox.id;
                 var precioElemento = precios[elemento] ? precios[elemento].precio : 0;
                 var maximo = precios[elemento] ? precios[elemento].maximo : 0;
-        
+
                 // Obtener la cantidad personalizada ingresada por el usuario
                 var cantidadPersonalizadaInput = document.getElementById(`cantidad_${elemento}`);
                 var cantidadPersonalizada = cantidadPersonalizadaInput ? parseInt(cantidadPersonalizadaInput.value) : 0;
-        
+
                 // Ajustar la cantidad al máximo permitido
                 var cantidadSeleccionada = Math.min(cantidadPersonalizada, maximo);
-        
+
                 if (elemento.includes('plato')) {
                     // Ajustar la cantidad de platos al máximo permitido por persona
                     var cantidadPlatosPorPersona = Math.min(cantidadPersonas, maximo);
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Sumar el precio total de otros elementos
                     precioTotal += cantidadSeleccionada * precioElemento;
                 }
-        
+
                 var precioElementId = `precio_${elemento}`;
                 var precioElement = document.getElementById(precioElementId);
                 if (precioElement) {
@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-        
+
         ocultarCargando();
         precioTotalElement.innerText = '$' + precioTotal.toFixed(2);
-        
+
     }
 
     function obtenerDatos() {
@@ -64,20 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 'X-Master-Key': apiKey,
             },
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud de datos');
-            }
-            return response.json();
-        })
-        .then(data => {
-            precios = data.record; // Actualizamos la variable precios con los datos obtenidos.
-            calcularPrecio();
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos:', error);
-            ocultarCargando();
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud de datos');
+                }
+                return response.json();
+            })
+            .then(data => {
+                precios = data.record; // Actualizamos la variable precios con los datos obtenidos.
+                calcularPrecio();
+            })
+            .catch(error => {
+                console.error('Error al obtener los datos:', error);
+                ocultarCargando();
+            });
     }
 
     actualizarButton.addEventListener('click', () => {

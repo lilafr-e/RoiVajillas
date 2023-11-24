@@ -68,6 +68,7 @@ main{
     font-size: 11px;
     text-transform: uppercase;
     text-align: -webkit-left;
+    padding: 15px;
 }
 .seguro > a{
     color: rgba(26, 96, 245, 0.658);
