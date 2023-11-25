@@ -18,6 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
         precioTotalElement.innerText = '';
     }
 
+    var firmaContainer = document.getElementById('firma-container');
+    var canvas = document.createElement('canvas');
+    firmaContainer.appendChild(canvas);
+
+    // Inicializa signature_pad
+    var firmaPad = new SignaturePad(canvas);
+
+    // Maneja el botón de borrar
+    document.getElementById('borrar-firma').addEventListener('click', function () {
+        event.preventDefault();
+        firmaPad.clear();
+    });
+    
+
     function calcularPrecio() {
         mostrarCargando();
         // console.log('Precio total:', precioTotal);
@@ -41,10 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Actualizar el precio total en el HTML
-        // console.log('Precio total:', precioTotal);
         precioTotalElement.innerText = '$' + precioTotal.toFixed(2);
 
-        // Ocultar el mensaje de carga
         ocultarCargando();
     }
 
@@ -52,17 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
         var maximo = precios[elemento] ? precios[elemento].maximo : 0;
 
         if (elemento.includes('plato')) {
-            // Ajustar la cantidad de platos al máximo permitido por persona
             return Math.min(cantidadPersonas, maximo);
         } else {
             // Ajustar la cantidad al máximo permitido
             var cantidadPersonalizadaInput = document.getElementById(`cantidad_${elemento}`);
             var cantidadPersonalizada = cantidadPersonalizadaInput ? parseInt(cantidadPersonalizadaInput.value) : 0;
 
-            // Si la cantidad personalizada es 0, utilizar la cantidad de personas
             cantidadPersonalizada = cantidadPersonalizada > 0 ? cantidadPersonalizada : cantidadPersonas;
-
-            // console.log(`Elemento: ${elemento}, Cantidad personalizada: ${cantidadPersonalizada}, Maximo: ${maximo}`);
 
             return Math.min(cantidadPersonalizada, maximo);
         }
@@ -188,46 +196,44 @@ function descargarPDF() {
         'En caso de haya una faltante se descontará del seguro ($5.000), en caso de que el monto supere al seguro se puede pagar voluntariamente o se recurrirá ' +
         'a medidas legales.';
 
-        var textoDividido = pdf.splitTextToSize(texto, anchoDisponible);
+    var textoDividido = pdf.splitTextToSize(texto, anchoDisponible);
 
-        // Configurar estilo de texto
-        var fontSize = 8;
-        pdf.setFontSize(fontSize);
-        pdf.setTextColor(0, 0, 0);
-    
-        // Calcular la posición vertical para que esté justo debajo de la tabla
-        var positionY = pdf.autoTable.previous.finalY + 5;
-    
-        // Iterar sobre las líneas de texto y agregarlas al PDF
-        textoDividido.forEach(function (linea) {
-            pdf.text(linea, 15, positionY);
-            positionY += pdf.getTextDimensions(linea).h * fontSize / pdf.internal.scaleFactor;
-        });
-    
-        // Reducir la separación antes del área de firma
-        positionY += 0;
-    
-        // Agregar área de firma
-        var firmaContainer = document.createElement('div');
-        firmaContainer.id = 'firma-container'; // Cambia a un ID único
-        firmaContainer.style.width = 50 + 'px';
-        firmaContainer.style.height = '180px';
-        firmaContainer.style.border = '1px solid #000';
-        firmaContainer.style.marginTop = '10px';
-    
-        html2canvas(document.getElementById('firma-container')).then(function (canvas) {
-            var imgData = canvas.toDataURL('image/png');
-    
-            // Agregar imagen de firma al PDF
-            pdf.addImage(imgData, 'PNG', 15, positionY + 3, 80, 30);
-    
-            // Guardar el PDF
-            pdf.save('resumen.pdf');
-        });
-    }
+    // Configurar estilo de texto
+    var fontSize = 8;
+    pdf.setFontSize(fontSize);
+    pdf.setTextColor(0, 0, 0);
 
+    // Calcular la posición vertical para que esté justo debajo de la tabla
+    var positionY = pdf.autoTable.previous.finalY + 5;
 
+    // Iterar sobre las líneas de texto y agregarlas al PDF
+    textoDividido.forEach(function (linea) {
+        pdf.text(linea, 15, positionY);
+        positionY += pdf.getTextDimensions(linea).h * fontSize / pdf.internal.scaleFactor;
+    });
 
+    // Reducir la separación antes del área de firma
+    positionY += 0;
 
+    // Agregar área de firma
+    var firmaContainer = document.createElement('div');
+    firmaContainer.id = 'firma-container'; // Cambia a un ID único
+    firmaContainer.style.width = 50 + 'px';
+    firmaContainer.style.height = '180px';
+    firmaContainer.style.border = '1px solid #000';
+    firmaContainer.style.marginTop = '10px';
 
-// document.cookie = "_ga_PHVG60J2FD=someValue; SameSite=None; Secure";
+    html2canvas(document.getElementById('firma-container')).then(function (canvas) {
+        var imgData = canvas.toDataURL('image/png');
+
+        // Agregar imagen de firma al PDF
+        pdf.addImage(imgData, 'PNG', 15, positionY + 3, 80, 30);
+
+        // Agregar la leyenda "Firma y aclaración"
+        pdf.setFontSize(8); // Puedes ajustar el tamaño de fuente según tus preferencias
+        pdf.text('Firma y aclaración', 16, positionY + 32); // Ajusta la posición vertical según sea necesario
+
+        // Guardar el PDF
+        pdf.save('resumen.pdf');
+    });
+}
