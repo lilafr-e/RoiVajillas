@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         firmaPad.clear();
     });
-    
+
 
     function calcularPrecio() {
         mostrarCargando();
@@ -76,8 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
-
     function mostrarPrecioEnHTML(elemento, precioElemento) {
         var precioElement = document.getElementById(`precio_${elemento}`);
         if (precioElement) {
@@ -102,14 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-
     actualizarButton.addEventListener('click', () => {
         obtenerDatos();
     });
 
     calcularPrecio();
 });
-
 
 const { jsPDF } = window.jspdf;
 let pdf;
@@ -166,13 +162,20 @@ function descargarPDF() {
     });
 
     pdf.autoTable({
-        head: [['Tipo de vajilla', 'Cantidad', 'Precio', 'TOTAL']],
+        head: [['Tipo de vajilla', 'Cantidad', 'Precio x Unidad', 'TOTAL']],
         body: vajillasSeleccionadas.map(function (vajilla) {
             return [vajilla.tipoVajilla, vajilla.cantidad, `$${vajilla.precio.toFixed(2)}`, `$${vajilla.total.toFixed(2)}`];
         }),
         layout: 'lightHorizontalLines',
-        startY: 5
+        startY: 15
     });
+
+    var titulo = "ROI Vajillas";
+    var anchoPagina = pdf.internal.pageSize.width;
+    var alturaTitulo = 16;
+    var posicionXTitulo = anchoPagina / 2 - pdf.getStringUnitWidth(titulo) * alturaTitulo / 6;
+    pdf.setFontSize(16);
+    pdf.text(titulo, posicionXTitulo, 10);
 
     // Calcular el ancho disponible para el texto
     var anchoDisponible = pdf.internal.pageSize.width - -150;
@@ -220,8 +223,8 @@ function descargarPDF() {
     firmaContainer.id = 'firma-container'; // Cambia a un ID único
     firmaContainer.style.width = 50 + 'px';
     firmaContainer.style.height = '180px';
-    firmaContainer.style.border = '1px solid #000';
-    firmaContainer.style.marginTop = '10px';
+    firmaContainer.style.borderBottom = '1px solid #000';
+    firmaContainer.style.marginTop = '5px';
 
     html2canvas(document.getElementById('firma-container')).then(function (canvas) {
         var imgData = canvas.toDataURL('image/png');
@@ -234,6 +237,6 @@ function descargarPDF() {
         pdf.text('Firma y aclaración', 16, positionY + 32); // Ajusta la posición vertical según sea necesario
 
         // Guardar el PDF
-        pdf.save('resumen.pdf');
+        pdf.save('alquiler-vajillas.pdf');
     });
 }

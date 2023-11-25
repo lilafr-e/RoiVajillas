@@ -122,4 +122,22 @@ main{
     text-decoration: none;
     cursor: pointer;
   }
+
   
+  .botao-wpp {
+      text-decoration: none;
+      color: #eee;
+      display: inline-block;
+      background-color: #25d366;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border-radius: 3px;
+      transition: color 0.5s ease;
+    }
+  .botao-wpp:hover {
+    background-color: darken(#1a8642, 5%);
+  }
+  
+  .botao-wpp:focus {
+    background-color: darken(#25d366, 15%);
+  }
