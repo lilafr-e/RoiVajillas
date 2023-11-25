@@ -1,0 +1,18 @@
+var texto = 'Este documento certifica que los elementos seleccionados fueron elegidos por el cliente y tienen un precio total de $' + precioTotal.toFixed(2) +
+        '. No incluye el seguro, que es opcional con un costo de $5.000, éste se devolverá al remitente ya sea por transferencia bancaria CBU, CVU o pago físico) ' +
+        'una vez finalizado el evento y verificado el estado de la vajilla.' +
+        'En caso de rotura, se deberá abonar el elemento dañado al precio de lista, consulte los precios de reposición en la página. ' +
+        'El máximo a alquilar son 106 platos, 106 copas, 106 cuchillos y 106 tenedores, en caso de que algo se pierda o rompa durante el evento ' +
+        'tendrán 1-2 repuestos dependiendo del stock del momento. Por ejemplo, son 106 personas pero a una se le rompe un plato, habrán 2 platos ' +
+        'adicionales disponibles para usar de emergencia (Esto depende del stock disponible, la cantidad varía de 1 a 2). Esto mismo aplica a cuchillos, tenedores, copas. No aplicable en hieleras, Pinza de hielo, ' +
+        'Panera, Legumbrera y Fuente Oval.' +
+        '0- ¿Puedo cancelar mi alquiler? Puede cancelar el alquiler hasta 2 días antes del evento.' +
+        '1- ¿Qué hacer una vez tengo mi cotización? Debes comunicarte por algunas de las vías disponibles; le pediremos en qué fecha quiere la vajilla y según ' +
+        'la disponibilidad te daremos un cupón para pagar de MercadoPago o pago físico.' +
+        '2- ¿Debo entregar la vajilla limpia? La vajilla se entregará limpia y en sus respectivas cajones de madera.' +
+        '3- ¿Qué pasa si en alguna copa hay rajaduras o astillamiento? Queda pendiente de evaluación, depende si es una copa y el grado de astillamiento. ' +
+        'En caso de los platos depende en qué sitio físicamente suceda; normalmente, si está rajado en la parte superior se considera roto debido a ' +
+        'qué es inseguro volverlo a usar en otros eventos.' +
+        '4- ¿Qué sucede si falta algún elemento o más y supera el monto del seguro? Si se entregan 100 elementos, deben devolverse 100 elementos. ' +
+        'En caso de haya una faltante se descontará del seguro ($5.000), en caso de que el monto supere al seguro se puede pagar voluntariamente o se recurrirá ' +
+        'a medidas legales.';

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROI Vajillas</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ROI Vajillas</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 </head>
 
 <body>
     <header class="header">
-        <h1>ROI Vajillas</h1>
+        <h1>REY Vajillas</h1>
     </header>
     <section>
         <h1 class="title">¡Calcula tu alquiler!</h1> <br>
@@ -111,6 +112,7 @@
                         <label for="balde_hielo">Balde de Hielo</label>
                         <input type="text" id="cantidad_balde_hielo" data-input-counter data-input-counter-max="10"
                             placeholder="0" class="input-Max">
+                        <input id="precio_balde_hielo" hidden>
                     </div>
 
                     <div>
@@ -118,6 +120,7 @@
                         <label for="pinzas_hielo">Pinzas de Hielo</label>
                         <input type="text" id="cantidad_pinzas_hielo" data-input-counter data-input-counter-max="10"
                             placeholder="0" class="input-Max">
+                        <input id="precio_pinzas_hielo" hidden></input>
                     </div>
 
                     <div>
@@ -125,6 +128,7 @@
                         <label for="panera_bambu_redonda">Panera de Bambú Redonda</label>
                         <input type="text" id="cantidad_panera_bambu_redonda" data-input-counter
                             data-input-counter-max="10" placeholder="0" class="input-Max">
+                        <input id="precio_panera_bambu_redonda" hidden></input>
                     </div>
 
                     <div>
@@ -132,6 +136,7 @@
                         <label for="legumbrera_oval">Legumbrera Oval</label>
                         <input type="text" id="cantidad_legumbrera_oval" data-input-counter data-input-counter-max="5"
                             placeholder="0" class="input-Max">
+                        <input id="precio_legumbrera_oval" hidden></input>
                     </div>
 
                     <div>
@@ -139,20 +144,26 @@
                         <label for="fuentes_oval_playas">Fuentes Oval Playas</label>
                         <input type="text" id="cantidad_fuentes_oval_playas" data-input-counter
                             data-input-counter-max="5" placeholder="0" class="input-Max">
+                        <input id="precio_fuentes_oval_playas" hidden>
                     </div>
-
-
                 </div> <br>
+                <div class="div_c_buttons">
+                    <button type="button" id="actualizar-button"
+                        class="text-white bg-green-700 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5
+                        py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Actualizar</button>
 
-                <button type="button" id="actualizar-button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5
-    py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Actualizar</button>
-
-                <button type="button" id="reservar" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5
-    py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Reservar</button>
-
-
-                <p id="resultado">Cotización final : <span id="cotizacion">0</span> No incluye seguro de <strong
-                        style="font-weight: 600;">$5.000</strong></p> <br>
+                    <button type="button" id="descargarPDF"
+                        class="text-white bg-green-700 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5
+                        py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ver cotización</button>
+                    <a href="https://api.whatsapp.com/send?phone=542302354543&text=%C2%A1Buen%20d%C3%ADa!%20Necesito%20ayuda%20con%20el%20alquiler%20de%20la%20vajilla."
+                        type="button" target="_blank"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5
+                        py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ayuda</a>
+                </div>
+                <p id="resultado">Cotización final : <span id="precioFinal">0</span> No incluye seguro de <strong
+                        style="font-weight: 600;">$5.000</strong></p>
+                <p style="border-bottom: 1px solid grey;">recuerda actualizar para ver el precio</p>
+                <br>
                 <p class="seguro">En caso de roptura, se deberá abonar el elemento dañado al precio de lista, consulte
                     los
                     precios de reposición en el siguiente link <a
@@ -180,14 +191,23 @@
                     volverlo a usar en otros eventos.
                     5- ¿Qué sucede si falta algun elemento o más y supera el monto del seguro? Si se entregan 100
                     elementos, deben devolverse 100 elementos. en caso de haya una faltante se descontará del seguro
-                    ($5.000), en caso de qué el monto supere al seguro se puede pagar voluntariamente o se recurrirá a
-                    una denuncia en el sector policial qué corresponda.
-
+                    ($5.000), en caso de qué el monto supere al seguro se puede pagar voluntariamente o se recurrirá 
+                    a medidas legales.
                 </p>
         </main>
     </section>
-
-
+    <div id="resumenModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeResumenModal">&times;</span>
+            <h2>Resumen de Reserva</h2>
+            <div id="resumenTableContainer"></div>
+        </div>
+    </div>
+    <div id="firma-container" style="width: 300px; height: 150px; border: 1px solid #000; margin-top: 10px;">
+        <!-- Aquí puedes agregar contenido adicional, como etiquetas o campos para la firma -->
+      </div>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="./jsPDF-AutoTable-3.7.1/dist/jspdf.plugin.autotable.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="script.js"></script>
 </body>
