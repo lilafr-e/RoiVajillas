@@ -170,12 +170,15 @@ function descargarPDF() {
         startY: 15
     });
 
-    var titulo = "ROI Vajillas";
+    var titulo = "VajillasREY";
     var anchoPagina = pdf.internal.pageSize.width;
     var alturaTitulo = 16;
     var posicionXTitulo = anchoPagina / 2 - pdf.getStringUnitWidth(titulo) * alturaTitulo / 6;
     pdf.setFontSize(16);
     pdf.text(titulo, posicionXTitulo, 10);
+
+    var numeroDocumento = document.getElementById('numeroDocumento').value;
+    // console.log("Número de documento:", numeroDocumento);
 
     // Calcular el ancho disponible para el texto
     var anchoDisponible = pdf.internal.pageSize.width - -150;
@@ -197,7 +200,7 @@ function descargarPDF() {
         'qué es inseguro volverlo a usar en otros eventos.' +
         '4- ¿Qué sucede si falta algún elemento o más y supera el monto del seguro? Si se entregan 100 elementos, deben devolverse 100 elementos. ' +
         'En caso de haya una faltante se descontará del seguro ($5.000), en caso de que el monto supere al seguro se puede pagar voluntariamente o se recurrirá ' +
-        'a medidas legales.';
+        'a medidas legales. El cliente con documento ('+ numeroDocumento +') firma y está conforme con las reglas estipuladas en el contrato.';
 
     var textoDividido = pdf.splitTextToSize(texto, anchoDisponible);
 
@@ -224,17 +227,18 @@ function descargarPDF() {
     firmaContainer.style.width = 50 + 'px';
     firmaContainer.style.height = '180px';
     firmaContainer.style.borderBottom = '1px solid #000';
+    firmaContainer.style.borderRadius = '10px';
     firmaContainer.style.marginTop = '5px';
 
     html2canvas(document.getElementById('firma-container')).then(function (canvas) {
         var imgData = canvas.toDataURL('image/png');
 
         // Agregar imagen de firma al PDF
-        pdf.addImage(imgData, 'PNG', 15, positionY + 3, 80, 30);
+        pdf.addImage(imgData, 'PNG', 15, positionY + 3, 70, 30);
 
         // Agregar la leyenda "Firma y aclaración"
         pdf.setFontSize(8); // Puedes ajustar el tamaño de fuente según tus preferencias
-        pdf.text('Firma y aclaración', 16, positionY + 32); // Ajusta la posición vertical según sea necesario
+        pdf.text('Firma del cliente', 16, positionY + 32); // Ajusta la posición vertical según sea necesario
 
         // Guardar el PDF
         pdf.save('alquiler-vajillas.pdf');

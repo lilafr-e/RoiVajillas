@@ -150,18 +150,19 @@
                 </div> <br>
                 <div class="div_c_buttons">
                     <button type="button" id="actualizar-button"
-                    class="hover:underline decoration-wavy text-white bg-purple-600 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5
+                        class="hover:underline decoration-wavy text-white bg-purple-600 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5
                     py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Actualizar</button>
 
                     <button type="button" id="descargarPDF"
                         class="hover:underline decoration-wavy text-white bg-purple-600 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5
                         py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ver cotización</button>
                     <a href="https://api.whatsapp.com/send?phone=542302354543&text=%C2%A1Buen%20d%C3%ADa!%20Necesito%20ayuda%20con%20el%20alquiler%20de%20la%20vajilla."
-                        type="button" target="_blank" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-purple-500 font-medium rounded-full text-sm px-5
+                        type="button" target="_blank"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-purple-500 font-medium rounded-full text-sm px-5
                         py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-purple-600 botao-wpp"
                         style="background-color: #25d366; width: 127px; display: flex; flex-direction: row; align-items: center; height: fit-content;">
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 1280.000000 720.000000" style="width: 26px;"
-                            preserveAspectRatio="xMidYMid meet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 1280.000000 720.000000"
+                            style="width: 26px;" preserveAspectRatio="xMidYMid meet">
                             <metadata>
                                 Created by potrace 1.15, written by Peter Selinger 2001-2017
                             </metadata>
@@ -176,6 +177,9 @@
                         Whatsapp</a>
 
                 </div>
+                <!-- AQUÍ CREA UNA ETIQUETA HTML PUEDE SER INPUT PARA PONER UN DOCUMENTO ESTILO AL ARGENTINO QUE SUELEN SER ASI 22.222.222 -->
+                <label for="numeroDocumento">Número de Documento:</label>
+                <input type="text" id="numeroDocumento" placeholder="Ingrese su DNI" maxlength="8" type="number" style="border-radius: 8px;">
                 <!-- CONTENEDOR FIRMA OPEN-->
                 <p style="font-size: 12px; text-align: center;">¿Quieres contratar la vajilla? <br> Firma aquí abajo y
                     presiona de nuevo en "Ver Cotización"</p>
@@ -222,7 +226,6 @@
                 </p>
         </main>
     </section>
-
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="./jsPDF-AutoTable-3.7.1/dist/jspdf.plugin.autotable.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
