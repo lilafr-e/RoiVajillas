@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto+Condensed:wght@300&display=swap');
 
-:root{
+:root {
     --c-crown: #ffbd59;
 }
 
@@ -56,7 +56,7 @@ main {
     max-height: fit-content;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px #00000029  ;
+    box-shadow: 0px 0px 20px #00000029;
 }
 
 .cant-personas {
@@ -183,17 +183,19 @@ header>img {
     max-width: 150px;
 }
 
-.div_guia_usuario{
+.div_guia_usuario {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
 }
+
 .div_guia_usuario p {
     font-size: 12px;
     text-transform: uppercase;
 }
-.div_guia_point{
+
+.div_guia_point {
     text-align: center;
     position: relative;
     width: 100%;
@@ -202,10 +204,12 @@ header>img {
     transform: translate(0px, 175px);
     text-align: justify;
 }
-.point1{
+
+.point1 {
     background-color: var(--c-crown);
 }
-.point1::before{
+
+.point1::before {
     content: "";
     position: absolute;
     width: 130px;
@@ -213,11 +217,11 @@ header>img {
     left: -120px;
     z-index: -2;
     transform: rotate(180deg);
-    background-color:var(--c-crown);
+    background-color: var(--c-crown);
     opacity: 0.5;
 }
 
-.point1::after{
+.point1::after {
     content: "";
     position: absolute;
     width: 201px;
@@ -229,11 +233,13 @@ header>img {
     z-index: -3;
     opacity: 0.5;
 }
-.point2{
+
+.point2 {
     background-color: #ffbd59;
     transform: translate(0px, 250px);
 }
-.point2::after{
+
+.point2::after {
     content: "";
     width: 65px;
     height: 10px;
@@ -243,7 +249,8 @@ header>img {
     top: 75px;
     opacity: 0.5;
 }
-.point2::before{
+
+.point2::before {
     content: "";
     position: absolute;
     width: 320px;
@@ -254,11 +261,13 @@ header>img {
     border-radius: 8px;
     opacity: 0.5;
 }
-.point3{
+
+.point3 {
     background-color: var(--c-crown);
-    transform: translate(0px, 270px);   
+    transform: translate(0px, 270px);
 }
-.point3::after{
+
+.point3::after {
     content: "";
     width: 50px;
     height: 10px;
@@ -268,7 +277,8 @@ header>img {
     top: 156px;
     opacity: 0.5;
 }
-.point3::before{
+
+.point3::before {
     content: "";
     position: absolute;
     width: 364px;
@@ -279,33 +289,36 @@ header>img {
     border-radius: 8px;
     opacity: 0.5;
 }
-.point4{
+
+.point4 {
     background-color: var(--c-crown);
-    transform: translate(0px, 300px);   
+    transform: translate(0px, 300px);
 }
-.point4::after{
+
+.point4::after {
     content: "";
     width: 56px;
     height: 10px;
     background-color: var(--c-crown);
     position: absolute;
-    left: -42px;
+    left: -38px;
     top: 0;
     opacity: 0.5;
 }
-.point4::before{
+
+.point4::before {
     content: "";
     position: absolute;
     width: 364px;
     height: 260px;
-    left: -405px;
-    top: -76px;
+    left: -400px;
+    top: -70px;
     border: 2px solid var(--c-crown);
     border-radius: 8px;
     opacity: 0.5;
 }
 
-.activar_guia{
+.activar_guia {
     height: fit-content;
     width: 100%;
     position: fixed;
@@ -316,11 +329,36 @@ header>img {
     top: 0px;
     margin: 0px;
 }
-.activar_guia button{
+
+.activar_guia button {
     backdrop-filter: blur(5px);
     font-weight: 600;
     padding: 10px;
     border: 1px solid black;
     border-radius: 0px 0px 2px 0px;
     filter: invert(2);
+}
+
+.container-input-dni {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    padding: 15px;
+}
+
+.p_Title_Firma {
+    width: fit-content;
+    position: relative;
+    top: -40px;
+    font-size: 1.5rem;
+}
+
+#borrar-firma {
+    border: 1px solid #000;
+    border-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: 600;
 }
