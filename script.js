@@ -10,34 +10,33 @@ var botonOnclick = document.getElementById('botonGuia');
 var guiaVisible = false;
 
 function alternarGuia() {
-  // Alternar el estado del elemento de guía
-  guiaVisible = !guiaVisible;
+    // Alternar el estado del elemento de guía
+    guiaVisible = !guiaVisible;
 
-  // Mostrar u ocultar el elemento de guía según el estado
-  if (guiaVisible) {
-    asideElemento.style.display = 'flex';
-  } else {
-    asideElemento.style.display = 'none';
-  }
+    // Mostrar u ocultar el elemento de guía según el estado
+    if (guiaVisible) {
+        asideElemento.style.display = 'flex';
+    } else {
+        asideElemento.style.display = 'none';
+    }
 }
 
 // Agregar event listener al botón
 if (botonOnclick) {
-  botonOnclick.addEventListener('click', function(event) {
-    event.preventDefault();
-    alternarGuia();
-  });
+    botonOnclick.addEventListener('click', function (event) {
+        event.preventDefault();
+        alternarGuia();
+    });
 }
 
-// Cerrar la guía si se hace clic fuera de ella
-document.addEventListener('click', function(event) {
-  var target = event.target;
-  if (guiaVisible && target !== botonOnclick && !asideElemento.contains(target)) {
-    // Ocultar la guía si está visible y se hace clic fuera de ella
-    asideElemento.style.display = 'none';
-    guiaVisible = false;
-  }
-});
+// Cerrar la guía si se hace clic en guiaUsuario
+if (asideElemento) {
+    asideElemento.addEventListener('click', function (event) {
+        event.stopPropagation(); // Evitar que el clic se propague al documento
+        alternarGuia(); // Cerrar la guía
+    });
+}
+
 
     const apiKey = '$2a$10$n3Be/OiZpAJ7KI5vUYT6dOmj90s0tg2/5T3QHbVdDbTBTxTiKc62K';
     const binId = '655f87a254105e766fd41d19';
@@ -237,7 +236,7 @@ function descargarPDF() {
         'qué es inseguro volverlo a usar en otros eventos.' +
         '4- ¿Qué sucede si falta algún elemento o más y supera el monto del seguro? Si se entregan 100 elementos, deben devolverse 100 elementos. ' +
         'En caso de haya una faltante se descontará del seguro ($5.000), en caso de que el monto supere al seguro se puede pagar voluntariamente o se recurrirá ' +
-        'a medidas legales. El cliente con documento ('+ numeroDocumento +') firma y está conforme con las reglas estipuladas en el contrato.';
+        'a medidas legales. El cliente con documento (' + numeroDocumento + ') firma y está conforme con las reglas estipuladas en el contrato.';
 
     var textoDividido = pdf.splitTextToSize(texto, anchoDisponible);
 

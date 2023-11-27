@@ -28,10 +28,15 @@
     <meta name="twitter:image" content="URL_DE_LA_IMAGEN_REPRESENTATIVA">
     <!-- Favicon (icono en la pestaña del navegador) -->
     <link rel="icon" href="./content/icon.png">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2891946205513627"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <section>
+        <div class="activar_guia">
+            <button id="botonGuia" class="hover:underline decoration-wavy">¿Necesitas ayuda?</button>
+        </div>
         <main>
             <header class="header">
                 <img src="./content/icon.png" alt="" srcset="">
@@ -165,12 +170,11 @@
                 </div> <br>
                 <div class="div_c_buttons">
                     <button type="button" id="actualizar-button"
-                        class="hover:underline decoration-wavy text-white bg-purple-600 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5
+                        class="hover:underline decoration-wavy text-white bg-yellow-400 hover:bg-gray-800 focus:outline-none  font-medium rounded-full text-sm px-5
                     py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Actualizar</button>
-
                     <button type="button" id="descargarPDF"
-                        class="hover:underline decoration-wavy text-white bg-purple-600 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5
-                        py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ver cotización</button>
+                    class="hover:underline decoration-wavy text-white bg-yellow-400 hover:bg-gray-800 focus:outline-none  font-medium rounded-full text-sm px-5
+                    py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ver cotización</button>
                     <a href="https://api.whatsapp.com/send?phone=542302354543&text=%C2%A1Buen%20d%C3%ADa!%20Necesito%20ayuda%20con%20el%20alquiler%20de%20la%20vajilla."
                         type="button" target="_blank"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-purple-500 font-medium rounded-full text-sm px-5
@@ -196,13 +200,15 @@
                     DNI, y después firma en el recuadro de abajo presiona de nuevo en "Ver Cotización" y tendrás el
                     contrato listo para presentar vía Whatsapp.</p>
                 <div class="container-input-dni">
-                    <!-- <label for="numeroDocumento">Número de Documento:</label> -->
-                    <input type="text" id="numeroDocumento" placeholder="Ingrese su DNI" maxlength="8" type="number"
+                    <div class="document-container">
+                        <label for="numeroDocumento">Número de documento</label>
+                    <input type="text" id="numeroDocumento" placeholder="32.100.001" maxlength="8" type="number"
                         style="border-radius: 8px;">
+                    </div>
                     <div id="firma-container"
                         style="width: 100%; max-width: 450px; height: 150px; border: 1px solid #000; margin-top: 10px; border-radius: 8px 8px 0px 8px;">
                     </div>
-                    <button id="borrar-firma">Borrar Firma</button>
+                    <button id="borrar-firma" class="hover:underline decoration-wavy">Borrar Firma</button>
                 </div>
                 <p id="resultado">Cotización final : <span id="precioFinal">0</span> No incluye seguro de <strong
                         style="font-weight: 600;">$5.000</strong></p>
@@ -238,9 +244,6 @@
                     a medidas legales.
                 </p>
         </main>
-        <div class="activar_guia">
-            <button id="botonGuia">Guíame</button>
-        </div>
         <aside id="guiaUsuario">
             <div class="div_guia_usuario" style="visibility: hidden;">
                 <h1>¿Necesitas Ayuda?</h1>
@@ -281,6 +284,7 @@
                 </p>
             </div>
         </aside>
+        
     </section>
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="./jsPDF-AutoTable-3.7.1/dist/jspdf.plugin.autotable.js"></script>
