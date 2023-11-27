@@ -9,6 +9,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="https://unpkg.com/signature_pad"></script>
+    <meta name="description" content="Calcula fácilmente el alquiler de vajillas para tu evento con VajillasRey. Ofrecemos una amplia gama de opciones elegantes y asequibles. ¡Haz de tu ocasión un momento inolvidable con nuestras vajillas de alta calidad!">
+    <!-- Etiqueta canonical para evitar contenido duplicado -->
+    <link rel="canonical" href="https://www.vajillasrey.com.ar/">
+    <!-- Etiquetas Open Graph para redes sociales -->
+    <meta property="og:title" content="VajillasRey - Cotización de Alquiler de Vajillas">
+    <meta property="og:description" content="Descubre la excelencia en el alquiler de vajillas para eventos con VajillasRey. Ofrecemos soluciones personalizadas para eventos de hasta 105 personas, garantizando los mejores precios en la ciudad. ¡Haz de tu celebración un éxito memorable! Entra ahora y utiliza nuestra herramienta de cálculo para obtener tu presupuesto personalizado.">
+    <meta property="og:image" content="URL_DE_LA_IMAGEN_REPRESENTATIVA">
+    <meta property="og:url" content="https://www.vajillasrey.com.ar/">
+    <meta property="og:type" content="website">
+    <!-- Etiquetas Twitter Card para Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VajillasRey - Cotización de Alquiler de Vajillas">
+    <meta name="twitter:description" content="Encuentra las mejores opciones para alquilar vajillas para tu evento con VajillasRey.">
+    <meta name="twitter:image" content="URL_DE_LA_IMAGEN_REPRESENTATIVA">
+    <!-- Favicon (icono en la pestaña del navegador) -->
+    <link rel="icon" href="./content/icon.png">
 </head>
 
 <body>
@@ -24,7 +40,7 @@
                 <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Por favor ingrese
                     la cantidad de personas</p> <br>
                 <div class="relative flex items-center max-w-[11rem] cant-personas">
-                    <button type="button" id="decrement-button" data-input-counter-decrement="bedrooms-input"
+                    <button type="button" id="decrement-button" data-input-counter-decrement="bedrooms-input" name="botón decremento"
                         class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
 
                         <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
@@ -40,7 +56,7 @@
                         </svg>
 
                     </button>
-                    <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1"
+                    <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1" name="cantidad de personas"
                         data-input-counter-max="106" aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="" value="0" required>
@@ -53,7 +69,7 @@
                         </svg>
                         <span>Personas</span>
                     </div>
-                    <button type="button" id="increment-button" data-input-counter-increment="bedrooms-input"
+                    <button type="button" id="increment-button" data-input-counter-increment="bedrooms-input"  name="botón aumento"
                         class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                         <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
