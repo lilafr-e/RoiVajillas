@@ -37,16 +37,37 @@ function toggleSelection(id) {
     const index = vajillaSeleccionada.findIndex(producto => producto.id === id);
     const productoElemento = document.getElementById(id); // Obtener el elemento del producto
 
+    // Verificar si el producto tiene stock disponible
+    if (productoSeleccionado.stock === 0) {
+        alert("¡Lo siento, este producto está agotado!");
+        return; // Salir de la función si no hay stock disponible
+    }
+
+    // Verificar si ya se ha alcanzado el límite de stock para este producto
+    const cantidadSeleccionada = vajillaSeleccionada.filter(producto => producto.id === id).length;
+    if (cantidadSeleccionada >= productoSeleccionado.stock) {
+        alert("¡Lo siento, ya se ha alcanzado el límite de stock para este producto!");
+        return; // Salir de la función si se ha alcanzado el límite de stock
+    }
+
+    // Verificar si el producto está dentro del rango de IDs no seleccionables
+    if (productoSeleccionado.id >= 8 && productoSeleccionado.id <= 11) {
+        console.log("Este producto no se puede seleccionar.");
+        return; // Salir de la función si el producto no es seleccionable
+    }
+
     if (index !== -1) { // Si el producto ya está seleccionado, lo eliminamos
         vajillaSeleccionada.splice(index, 1);
         productoElemento.parentNode.parentNode.classList.remove('selected'); // Eliminamos la clase 'selected'
-    } else { // Si el producto no está seleccionado, lo agregamos al array
+    } else { // Si el producto no está seleccionado y hay stock disponible, lo agregamos al array
         vajillaSeleccionada.push(productoSeleccionado);
         productoElemento.parentNode.parentNode.classList.add('selected'); // Agregamos la clase 'selected'
     }
 
     calcularCostoTotal(); // Calculamos el costo total de la vajilla seleccionada
 }
+
+
 
 
 function calcularCostoTotal() {
