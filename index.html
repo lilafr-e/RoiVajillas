@@ -28,268 +28,134 @@
     <meta name="twitter:image" content="URL_DE_LA_IMAGEN_REPRESENTATIVA">
     <!-- Favicon (icono en la pestaña del navegador) -->
     <link rel="icon" href="./content/icon.png">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2891946205513627"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-    <section>
-        <div class="activar_guia">
-            <button id="botonGuia" class="hover:underline decoration-wavy">¿Necesitas ayuda?</button>
+    <header class="header">
+        <img src="./content/icon.png" alt="" srcset="">
+    </header>
+    <main>
+        <div class="container-rangePerson">
+            <span>
+                <span class="material-symbols-rounded icon-group">
+                    diversity_3
+                    </span> 
+                <h2 id="value">2</h2><br>
+                <input type="range" name="range" id="range" oninput="updateValue(this.value)" max="95" min="2" value="2">
+            </span> 
+            <p>Deslize para seleccionar la cantidad de personas</p>
+            <div class="container-cotizacion">
+                <span>
+                    <h2>Costo del alquiler : $<span id="alquiler-value">0</span></h2>
+                </span>
+                <button onclick="cotizar()">Cotizar</button>
+            </div>
         </div>
-        <main>
-            <header class="header">
-                <img src="./content/icon.png" alt="" srcset="">
-            </header>
-            <form class="max-w-sm mx-auto" style="display: flex; align-items: center; flex-direction: column;">
-                <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Por favor ingrese
-                    la cantidad de personas</p> <br>
-                <div class="relative flex items-center max-w-[11rem] cant-personas">
-                    <button type="button" id="decrement-button" data-input-counter-decrement="bedrooms-input"
-                        name="botón decremento"
-                        class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 1h16" />
-                        </svg>
-                        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
-                            <path
-                                d="M4,20 C4,17 8,17 10,15 C11,14 8,14 8,9 C8,5.667 9.333,4 12,4 C14.667,4 16,5.667 16,9 C16,14 13,14 14,15 C16,17 20,17 20,20" />
-                        </svg>
-                    </button>
-                    <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1"
-                        name="cantidad de personas" data-input-counter-max="106"
-                        aria-describedby="helper-text-explanation"
-                        class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="" value="0" required>
-                    <div
-                        class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
-                        <svg class="w-2.5 h-2.5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4,20 C4,17 8,17 10,15 C11,14 8,14 8,9 C8,5.667 9.333,4 12,4 C14.667,4 16,5.667 16,9 C16,14 13,14 14,15 C16,17 20,17 20,20" />
-                        </svg>
-                        <span>Personas</span>
-                    </div>
-                    <button type="button" id="increment-button" data-input-counter-increment="bedrooms-input"
-                        name="botón aumento"
-                        class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </button>
+
+        <aside>
+            <section class="container-Box">
+                <div class="boxProd mod-1" onclick="toggleSelection('plato-1')">
+                    <img src="https://mercator.com.ar/media/catalog/product/cache/1789a592940e442281e8fbe1185f12bf/a/e/ae02.5002.jpg"
+                        alt="">
+                    <span>
+                        <h2>Plato Playo</h2> <br>
+                        <p>Ideal para comida principal</p>
+                        <button type="button" id="plato-1">Seleccionar</button>
+                    </span>
                 </div>
-                <label style="visibility: hidden;">Seleccione la vajilla a alquilar:</label>
-                <br>
-                <div class="container-checkboxs">
-                    <div>
-                        <input type="checkbox" id="plato_playo" value="Plato Playo">
-                        <label for="plato_playo">Plato Playo (Comida General)</label>
-                        <p id="precio_plato_playo"></p>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="plato_lunch" value="Plato Lunch">
-                        <label for="plato_lunch">Plato Lunch (Postres)</label>
-                        <p id="precio_plato_lunch"></p>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="cuchillos" value="Cuchillos">
-                        <label for="cuchillos">Cuchillos</label>
-                        <p id="precio_cuchillos"></p>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="tenedor_mesa" value="Tenedor de Mesa">
-                        <label for="tenedor_mesa">Tenedores</label>
-                        <p id="precio_tenedor_mesa"></p>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="cuchara_postre" value="Cuchara de Postre">
-                        <label for="cuchara_postre">Cuchara de Postre</label>
-                        <p id="precio_cuchara_postre"></p>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="copa_agua_windsor" value="Copa de Agua Mod. Windsor">
-                        <label for="copa_agua_windsor">Copa de Agua</label>
-                        <p id="precio_copa_agua_windsor"></p>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="copa_champagne_windsor" value="Copa de Champagne Mod. Windsor">
-                        <label for="copa_champagne_windsor">Copa de Champagne</label>
-                        <p id="precio_copa_champagne_windsor"></p>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="balde_hielo" value="Balde de Hielo Inoxidable c/Pompón Nro.11">
-                        <label for="balde_hielo">Balde de Hielo</label>
-                        <input type="text" id="cantidad_balde_hielo" data-input-counter data-input-counter-max="10"
-                            placeholder="0" class="input-Max">
-                        <input id="precio_balde_hielo" hidden>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="pinzas_hielo" value="Pinzas de Hielo">
-                        <label for="pinzas_hielo">Pinzas de Hielo</label>
-                        <input type="text" id="cantidad_pinzas_hielo" data-input-counter data-input-counter-max="10"
-                            placeholder="0" class="input-Max">
-                        <input id="precio_pinzas_hielo" hidden></input>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="panera_bambu_redonda" value="Panera de Bambú Redonda">
-                        <label for="panera_bambu_redonda">Panera de Bambú Redonda</label>
-                        <input type="text" id="cantidad_panera_bambu_redonda" data-input-counter
-                            data-input-counter-max="10" placeholder="0" class="input-Max">
-                        <input id="precio_panera_bambu_redonda" hidden></input>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="legumbrera_oval" value="Legumbrera Oval">
-                        <label for="legumbrera_oval">Legumbrera Oval</label>
-                        <input type="text" id="cantidad_legumbrera_oval" data-input-counter data-input-counter-max="5"
-                            placeholder="0" class="input-Max">
-                        <input id="precio_legumbrera_oval" hidden></input>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="fuentes_oval_playas" value="Fuentes Oval Playas">
-                        <label for="fuentes_oval_playas">Fuentes Oval Playas</label>
-                        <input type="text" id="cantidad_fuentes_oval_playas" data-input-counter
-                            data-input-counter-max="5" placeholder="0" class="input-Max">
-                        <input id="precio_fuentes_oval_playas" hidden>
-                    </div>
-                </div> <br>
-                <div class="div_c_buttons">
-                    <button type="button" id="actualizar-button"
-                        class="hover:underline decoration-wavy text-white bg-yellow-400 hover:bg-gray-800 focus:outline-none  font-medium rounded-full text-sm px-5
-                    py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Actualizar</button>
-                    <button type="button" id="descargarPDF"
-                    class="hover:underline decoration-wavy text-white bg-yellow-400 hover:bg-gray-800 focus:outline-none  font-medium rounded-full text-sm px-5
-                    py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ver cotización</button>
-                    <a href="https://api.whatsapp.com/send?phone=542302354543&text=%C2%A1Buen%20d%C3%ADa!%20Necesito%20ayuda%20con%20el%20alquiler%20de%20la%20vajilla."
-                        type="button" target="_blank"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-purple-500 font-medium rounded-full text-sm px-5
-                        py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-purple-600 botao-wpp"
-                        style="background-color: #25d366; width: 127px; display: flex; flex-direction: row; align-items: center; height: fit-content;">
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 1280.000000 720.000000"
-                            style="width: 26px;" preserveAspectRatio="xMidYMid meet">
-                            <metadata>
-                                Created by potrace 1.15, written by Peter Selinger 2001-2017
-                            </metadata>
-                            <g transform="translate(0.000000,720.000000) scale(0.100000,-0.100000)" fill="#f2f2f2"
-                                stroke="none">
-                                <path
-                                    d="M6255 6844 c-540 -35 -1107 -229 -1555 -532 -473 -320 -848 -752 -1091 -1256 -133 -276 -216 -536 -273 -856 -43 -240 -52 -602 -22 -880 40 -374 177 -822 362 -1188 l53 -103 -123 -367 c-68 -202 -191 -570 -274 -818 -84 -249 -152 -459 -152 -469 0 -9 13 -22 29 -28 26 -10 29 -14 24 -45 -6 -32 -5 -34 18 -27 41 13 936 298 1314 420 198 63 368 115 378 115 9 0 52 -17 95 -39 366 -184 756 -294 1171 -332 164 -14 498 -7 659 16 954 132 1766 659 2266 1468 163 264 318 632 401 952 79 307 117 688 96 982 -54 781 -356 1473 -881 2017 -509 527 -1157 853 -1895 952 -108 14 -482 26 -600 18z m391 -684 c357 -29 650 -108 959 -259 419 -206 770 -514 1030 -906 200 -301 323 -625 371 -979 23 -168 23 -508 0 -680 -163 -1209 -1161 -2141 -2372 -2217 -427 -26 -824 44 -1212 214 -107 47 -284 143 -339 183 -17 13 -39 24 -49 24 -9 0 -222 -65 -472 -145 -250 -80 -456 -145 -457 -143 -2 2 62 197 141 433 79 237 144 442 144 458 0 16 -18 53 -44 90 -418 599 -554 1426 -351 2127 45 152 82 245 155 390 200 391 505 732 880 982 473 316 1064 472 1616 428z" />
-                                <path
-                                    d="M5323 5236 c-23 -7 -56 -23 -75 -34 -51 -32 -199 -190 -245 -262 -147 -229 -180 -534 -92 -832 67 -225 149 -397 299 -629 190 -292 313 -450 510 -653 296 -305 545 -476 927 -635 282 -118 490 -185 607 -197 81 -8 258 20 362 58 144 52 309 168 373 262 64 96 130 313 138 457 l6 95 -31 36 c-22 24 -112 78 -294 176 -432 232 -487 254 -555 218 -17 -8 -81 -73 -141 -143 -178 -207 -215 -243 -245 -243 -38 0 -287 127 -403 205 -135 92 -223 166 -334 281 -132 137 -275 333 -355 486 l-18 36 72 79 c95 101 134 162 172 268 39 108 37 141 -20 290 -51 133 -92 243 -163 434 -58 157 -101 221 -161 240 -57 17 -287 22 -334 7z" />
-                            </g>
-                        </svg>
-                        Whatsapp</a>
-
+                <div class="boxProd mod-1" onclick="toggleSelection('plato-2')">
+                    <img src="https://mercator.com.ar/media/catalog/product/cache/1789a592940e442281e8fbe1185f12bf/a/e/ae02.5002.jpg"
+                        alt="">
+                    <span>
+                        <h2>Plato Lunch</h2> <br>
+                        <p>Ideal para comida de entrada o postres</p>
+                        <button type="button" id="plato-2">Seleccionar</button>
+                    </span>
                 </div>
-                <p style="font-size: 12px; text-align: center;">¿Quieres contratar la vajilla? <br> Escribe tu número de
-                    DNI, y después firma en el recuadro de abajo presiona de nuevo en "Ver Cotización" y tendrás el
-                    contrato listo para presentar vía Whatsapp.</p>
-                <div class="container-input-dni">
-                    <div class="document-container">
-                        <label for="numeroDocumento">Número de documento</label>
-                    <input type="text" id="numeroDocumento" placeholder="32.100.001" maxlength="8" type="number"
-                        style="border-radius: 8px;">
-                    </div>
-                    <div id="firma-container"
-                        style="width: 100%; max-width: 450px; height: 150px; border: 1px solid #000; margin-top: 10px; border-radius: 8px 8px 0px 8px;">
-                    </div>
-                    <button id="borrar-firma" class="hover:underline decoration-wavy">Borrar Firma</button>
+            </section>
+            <section class="container-Box">
+                <div class="boxProd mod-2" onclick="toggleSelection('utensillo-1')">
+                    <img src="https://acdn.mitiendanube.com/stores/678/024/products/image-97d1071f610c0b9d6d16780424343289-640-0.jpg"
+                        alt="">
+                    <span>
+                        <h2>Cuchillo</h2> <br>
+                        <p>Excelente filo para carnes y comida en general</p>
+                        <button type="button" id="utensillo-1">Seleccionar</button>
+                    </span>
                 </div>
-                <p id="resultado">Cotización final : <span id="precioFinal">0</span> No incluye seguro de <strong
-                        style="font-weight: 600;">$5.000</strong></p>
-                <br>
-                <p class="seguro">En caso de roptura, se deberá abonar el elemento dañado al precio de lista, consulte
-                    los
-                    precios de reposición en el siguiente link <a
-                        href="https://docs.google.com/spreadsheets/d/1xWIWA4nEjhaMaTNzjGp4UrpZHgn2hTd4MiDoQIGT8bQ/edit#gid=819803144">Tabla
-                        de reposición</a> <br> El máximo a alquilar son 106 platos, 106 copas, 106 cuchillos y 106
-                    tenedores,
-                    en caso de que algo se pierda o rompa durante el evento tendrán 1-2 respuesto dependiento del stock
-                    del momento. <br> Ejemplo son 106 personas pero a una se le rompe un plato, habrán 2 platos
-                    adicionales disponibles para usar de emergencia, esto mismo aplica a cuchillos, tenedores, copas. No
-                    aplicable en hieleras, Pinza de hielo, Panera, Legumbrera y Fuente Oval. <br> en caso de roptura de
-                    un elemento se descontará del seguro según el precio qué figure en la <a
-                        href="https://docs.google.com/spreadsheets/d/1xWIWA4nEjhaMaTNzjGp4UrpZHgn2hTd4MiDoQIGT8bQ/edit#gid=819803144">tabla
-                        de reposición</a> costo del seguro, es de un total de $5.000, en caso de que no haya roptura o
-                    extravío de algun elemento se reintegra en el momento de la devolución de la vajilla, caso contrario
-                    se descontará lo extraviado o dañado. <br>
-                    0- ¿Puedo cancelar mi alquier? Puede cancelar el alquiler hasta 2 días antes del evento. <br>
-                    1- ¿Que hacer una vez tengo mi cotización? debes comunicarte por algunas de las vías disponibles, le
-                    pediremos en qué fecha quiere la vajilla y según la disponibilidad te daremos un cupón para pagar de
-                    MercadoPago o pago físico. <br>
-                    2- ¿Debo entregar la vajilla limpia? La vajilla se entregará limpia y en su respectivas cajónes de
-                    madera.
-                    3- ¿Que pasa si en alguna copa hay rajaduras o astillamiento? Queda pendiente de evaluación, depende
-                    si es una copa y el grado de astillamiento. En caso de los platos depende en qué sitio fisicamente
-                    suceda, normalmente si esta rajado en la parte superiro se considera roto débido a qué es inseguro
-                    volverlo a usar en otros eventos.
-                    4- ¿Qué sucede si falta algun elemento o más y supera el monto del seguro? Si se entregan 100
-                    elementos, deben devolverse 100 elementos. en caso de haya una faltante se descontará del seguro
-                    ($5.000), en caso de qué el monto supere al seguro se puede pagar voluntariamente o se recurrirá
-                    a medidas legales.
-                </p>
-        </main>
-        <aside id="guiaUsuario">
-            <div class="div_guia_usuario" style="visibility: hidden;">
-                <h1>¿Necesitas Ayuda?</h1>
-                <p>Aquí te guiaremos</p>
-            </div>
-            <div class="div_guia_point point1">
-                <p>Aquí ingrese la cantidad de personas que asistirán <br> <span>(el máximo 106 personas)</span></p>
-            </div>
-            <div class="div_guia_point point2">
-                <p>Aquí seleccióna la vajilla qué te interesa <br> <span>(Balde de Hielo
-                        Pinzas de Hielo
-                        Panera de Bambú Redonda
-                        Legumbrera Oval
-                        Fuentes Oval Playas la cantidad se puede personalizar, simplemente pon en el cuadrado el numero
-                        que quieres)</span></p>
-            </div>
-            <div class="div_guia_point point3">
-                <p>
-                    <strong>1-.</strong><strong>Actualizar</strong> : Una vez pusiste la cantida de gente que asistirá,
-                    y eligiste la vajilla qué necesitas deberás presionar Actualizar para cargar los precios. <br>
-                    <strong>2-.</strong><strong>Ver Cotización</strong> : ¿Ya le diste a <strong>Actualizar</strong>?
-                    entonces ahora podrás ver la cotización presionando el botón, se descargará un PDF donde estará
-                    hecho el contrato. <br>
-                    <strong>3-.</strong><strong>Whatsapp</strong> : Ya has visto el contrato, necesitas ayuda o tienes
-                    alguna duda en especifico no dudes en consultarnos por <strong>Whatsapp</strong>.
-                </p>
-            </div>
-            <div class="div_guia_point point4">
-                <p>¿Quieres alquilar la vajilla? debes seguir estos pasos. <br>
-                    <strong>1-.</strong>Ingresa tu número de DNI con o sin puntos.<br>
-                    <strong>2-.</strong>En el cuadrado grande, allí adentro deberás poner tu firma, si no te sale bien
-                    puedes borrarla y re-hacerla. <br>
-                    <strong>3-.</strong>Ultimo paso, para evitar confusión deberás revisar de nuevo si la vajilla y la
-                    cantidad de personas son las correctas si está bien los datos, presiona <strong>Actualizar</strong>
-                    y ahora presionas <strong>Ver Cotización</strong> ahora tendrás el archivo .pdf con tus datos y la
-                    vajilla que necesitas, este archivo .pdf deberás enviarlo vía whatsapp y allí coordinaremos entrega,
-                    pago y devolución de la vajilla.
-                </p>
-            </div>
+                <div class="boxProd mod-2" onclick="toggleSelection('utensillo-2')">
+                    <img src="https://acdn.mitiendanube.com/stores/678/024/products/image-18a04d30f2c93ee7f916780420141871-640-0.jpg"
+                        alt="">
+                    <span>
+                        <h2>Tenedor</h2> <br>
+                        <p>Lorem ipsum dolor sit</p>
+                        <button type="button" id="utensillo-2">Seleccionar</button>
+                    </span>
+                </div>
+                <div class="boxProd mod-2" onclick="toggleSelection('utensillo-3')">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_612385-MLA45400028880_032021-O.webp" alt="">
+                    <span>
+                        <h2>Cuchara</h2> <br>
+                        <p>Amplia ideal para postres</p>
+                        <button type="button" id="utensillo-3">Seleccionar</button>
+                    </span>
+                </div>
+            </section>
+            <section class="container-Box">
+                <div class="boxProd mod-3" onclick="toggleSelection('copa-1')">
+                    <img src="./content/Images/copa-1.png" alt="">
+                    <span>
+                        <h2>Copa Windsor Agua</h2> <br>
+                        <p>Copa para agua o bebidas 300cc</p>
+                        <button type="button" id="copa-1">Seleccionar</button>
+                    </span>
+                </div>
+                <div class="boxProd mod-3" onclick="toggleSelection('copa-2')">
+                    <img src="./content/Images/copa-2.webp" alt="">
+                    <span>
+                        <h2>Copa Windsor Brindis</h2> <br>
+                        <p>Copa para brindis 190cc</p>
+                        <button type="button" id="copa-2">Seleccionar</button>
+                    </span>
+                </div>
+            </section>
+            <section class="container-Box">
+                <div class="boxProd mod-4" onclick="toggleSelection('mod-1')">
+                    <img src="./content/Images/balde-hielo.png" alt="">
+                    <span>
+                        <h2>Balde de hielo</h2> <br>
+                        <p>N° 11 Con Pinzas</p>
+                        <button type="button" id="mod-1">Seleccionar</button>
+                    </span>
+                </div>
+                <div class="boxProd mod-4" onclick="toggleSelection('mod-2')">
+                    <img src="./content/Images/panera.webp" alt="">
+                    <span>
+                        <h2>Panera</h2> <br>
+                        <p>Bambu, 20 cm</p>
+                        <button type="button" id="mod-2">Seleccionar</button>
+                    </span>
+                </div>
+                <div class="boxProd mod-4" onclick="toggleSelection('mod-3')">
+                    <img src="./content/Images/legumbrera.webp" alt="">
+                    <span>
+                        <h2>Legumbrera</h2> <br>
+                        <p>Inoxidable 29 cm</p>
+                        <button type="button" id="mod-3">Seleccionar</button>
+                    </span>
+                </div>
+                <div class="boxProd mod-4" onclick="toggleSelection('mod-4')">
+                    <img src="./content/Images/fuente.webp" alt="">
+                    <span>
+                        <h2>Fuente Oval Playa</h2> <br>
+                        <p>Inoxidable 32 cm</p>
+                        <button type="button" id="mod-4">Seleccionar</button>
+                    </span>
+                </div>
+            </section>
         </aside>
-        
-    </section>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2891946205513627"
-     crossorigin="anonymous"></script>  
-    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
-    <script src="./jsPDF-AutoTable-3.7.1/dist/jspdf.plugin.autotable.js"></script>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="script.js"></script>
 </body>
